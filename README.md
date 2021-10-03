@@ -33,7 +33,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://raw.githubusercontent.com/john-royal/Tweeter/main/TweeterWalkthrough-1.gif' title='Video Walkthrough' alt='Video Walkthrough' width='200px' />
+<img src='https://raw.githubusercontent.com/john-royal/Tweeter/main/TweeterWalkthrough-2.gif' title='Video Walkthrough' alt='Video Walkthrough' width='200px' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
