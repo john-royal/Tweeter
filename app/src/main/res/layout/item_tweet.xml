@@ -45,9 +45,9 @@
         android:id="@+id/tvTimestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_marginHorizontal="5dp"
         android:layout_marginVertical="7dp"
-        android:layout_alignParentEnd="true"
         android:textSize="12sp"
         tools:text="3 hrs ago" />
 

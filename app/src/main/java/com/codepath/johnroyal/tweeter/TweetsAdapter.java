@@ -62,6 +62,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         TextView tvUserName;
         TextView tvUserScreenName;
         TextView tvUserVerifiedCheckmark;
+        TextView tvTimestamp;
         TextView tvBody;
         ImageView ivProfileImage;
 
@@ -70,6 +71,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvUserName = itemView.findViewById(R.id.tvUserName);
             tvUserScreenName = itemView.findViewById(R.id.tvUserScreenName);
             tvUserVerifiedCheckmark = itemView.findViewById(R.id.tvUserVerifiedCheckmark);
+            tvTimestamp = itemView.findViewById(R.id.tvTimestamp);
             tvBody = itemView.findViewById(R.id.tvBody);
             ivProfileImage = itemView.findViewById(R.id.ivProfileImage);
         }
@@ -78,6 +80,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             tvUserName.setText(tweet.user.name);
             tvUserScreenName.setText("@" + tweet.user.screenName);
             tvUserVerifiedCheckmark.setVisibility(tweet.user.isVerified ? View.VISIBLE : View.GONE);
+            tvTimestamp.setText(tweet.getRelativeTimeAgo());
             tvBody.setText(tweet.body);
             Glide.with(context).load(tweet.user.profileImageUrl).into(ivProfileImage);
         }
