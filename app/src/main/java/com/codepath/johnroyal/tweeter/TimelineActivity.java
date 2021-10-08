@@ -55,22 +55,18 @@ public class TimelineActivity extends AppCompatActivity {
     }
 
     private void populateHomeTimeline() {
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+        client.getHomeTimeline(new TwitterClient.TimelineResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Headers headers, JSON json) {
+            public void onSuccess(TwitterClient.HTTPResponseCode responseCode, List<Tweet> tweets) {
                 Log.i(TAG, "onSuccess");
-                try {
-                    adapter.clear();
-                    adapter.addAll(Tweet.fromJsonArray(json.jsonArray));
-                    swipeContainer.setRefreshing(false);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                adapter.clear();
+                adapter.addAll(tweets);
+                swipeContainer.setRefreshing(false);
             }
 
             @Override
-            public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                Log.i(TAG, "onFailure", throwable);
+            public void onFailure(TwitterClient.FailureResponse failureResponse) {
+                Log.i(TAG, "onFailure");
             }
         });
     }
