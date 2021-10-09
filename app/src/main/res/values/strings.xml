@@ -5,5 +5,7 @@
     <string name="login_label">Log in</string>
     <string name="intent_scheme">oauth</string>
     <string name="intent_host">codepathtweeter</string>
+    <string name="compose">Compose</string>
+    <string name="tweet">Tweet</string>
 
 </resources>

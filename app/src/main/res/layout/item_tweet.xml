@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:layout_marginVertical="5dp"
+        android:layout_margin="5dp"
         android:textColor="@android:color/primary_text_light"
         android:textStyle="bold"
         tools:text="Jamie Harris" />
@@ -28,8 +28,9 @@
         android:id="@+id/tvUserVerifiedCheckmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:layout_toEndOf="@+id/tvUserName"
+        android:layout_marginVertical="5dp"
+        android:textColor="#1DA1F2"
         android:text="✓" />
 
     <TextView
@@ -37,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="7dp"
+        android:layout_marginHorizontal="5dp"
         android:layout_toEndOf="@+id/tvUserVerifiedCheckmark"
         android:textSize="12sp"
         tools:text="\@JamieHarris" />
@@ -58,5 +60,7 @@
         android:layout_below="@+id/tvUserScreenName"
         android:layout_marginBottom="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
+        android:autoLink="all"
+        android:linksClickable="true"
         tools:text="Lorem ipsum dolor set amet" />
 </RelativeLayout>

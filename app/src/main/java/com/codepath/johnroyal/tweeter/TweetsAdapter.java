@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.codepath.johnroyal.tweeter.models.Tweet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder> {
@@ -20,24 +21,21 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
     Context context;
     List<Tweet> tweets;
 
-    // Pass in context and list of tweets
-    public TweetsAdapter(Context context, List<Tweet> tweets) {
+    public TweetsAdapter(Context context) {
         this.context = context;
-        this.tweets = tweets;
+        this.tweets = new ArrayList<>();
     }
 
-    // Inflate layout for each row
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Inflate layout for each row
         View view = LayoutInflater.from(context).inflate(R.layout.item_tweet, parent, false);
         return new ViewHolder(view);
     }
 
-    // Bind values based on position of element
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // Get data at position
         Tweet tweet = tweets.get(position);
         holder.bind(tweet);
     }
@@ -47,14 +45,15 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
         return tweets.size();
     }
 
-    public void clear() {
+    public void setTweets(List<Tweet> newTweets) {
         tweets.clear();
+        tweets.addAll(newTweets);
         notifyDataSetChanged();
     }
 
-    public void addAll(List<Tweet> newTweets) {
-        tweets.addAll(newTweets);
-        notifyDataSetChanged();
+    public void add(int i, Tweet tweet) {
+        tweets.add(i, tweet);
+        notifyItemInserted(i);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
